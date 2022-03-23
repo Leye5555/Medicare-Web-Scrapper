@@ -82,6 +82,7 @@ const puppeteerFxn = async (obj) => {
         writeStream.write(sample.slice(0,sample.length))
         //close browser
         await browser.close();
+        return "done";
     }
 
     catch(err){
@@ -93,8 +94,8 @@ const puppeteerFxn = async (obj) => {
 //create post method for search query
 app.post("/scraper", async (req, res)=> {
     try{
-    await puppeteerFxn(req.body);   
-    res.status(200).send({message : "ok"});
+    const done = await puppeteerFxn(req.body);   
+    if (done === "done") res.status(200).send({message : "ok"});
     }catch(err) {
         console.log(err);
     }
