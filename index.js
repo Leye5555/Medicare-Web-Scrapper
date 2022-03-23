@@ -47,7 +47,7 @@ app.get("/", async (req, res)=> res.sendFile(pathToViews + "/index.html"));
 const puppeteerFxn = async (obj) => {
     try{
         const writeStream = fs.createWriteStream("appeal.csv");
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
         const page = await browser.newPage();
         await page.goto(process.env.baseUrl);
         await page.type("#edit-appeal-number", obj["appeal-number"]);
