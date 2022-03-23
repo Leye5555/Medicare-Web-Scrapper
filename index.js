@@ -32,7 +32,7 @@ app.use(cors());
 
 
 // set home page
-app.get("/", (req, res)=> res.sendFile(pathToViews + "/index.html"));
+app.get("/", async (req, res)=> res.sendFile(pathToViews + "/index.html"));
 
 
 
