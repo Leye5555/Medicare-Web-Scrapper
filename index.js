@@ -37,7 +37,7 @@ app.get("/", async (req, res)=> res.sendFile(pathToViews + "/index.html"));
 //create post method for search query
 app.post("/scraper", async (req, res)=> {
     try{
-    const done = await puppeteerFxn(req.body);   
+    const done = await puppeteerFxn(req.body);  // call the puppeteer Fxn and pass the req obj to it 
     if (done === "done") res.status(200).send({message : "ok"});
     }catch(err) {
         console.log(err);
