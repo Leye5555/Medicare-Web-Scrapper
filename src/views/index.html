@@ -68,6 +68,12 @@
              <label for="edit-end-date">End Date:  </label>
             <input class="date-picker form-text hasDatepicker" type="text" id="edit-end-date" name="end-date"  size="60" maxlength="128">
            </div>
+           <div><label for="data-page">Enter the specific set you wish to fetch. </label><input id="data-page" name="dtIndex" type="number" min="1"></div>
+           <br />
+           <span>- Or -</span>
+           <br />
+           <br />
+           <div><label for="data-set">Enter the number of sets to be fetched at once. Note that each set contains fifty(50) records</label><input id="data-set" name="dtIndex" type="number" min="1"></div>
            <input type="button" onclick="scraperFunction()" id="edit-submit" name="op" value="Search" class="form-submit">
            </form>
       </div>
@@ -81,6 +87,8 @@
         const dateType = document.querySelector("#edit-date-type");
         const startDate = document.getElementById("edit-start-date");
         const endDate = document.getElementById("edit-end-date");
+        const dtIndex = document.getElementById("data-set");
+        const dtSingle = document.getElementById("data-page");
     
       // create dialog
       const dialog = document.createElement("div");
@@ -94,6 +102,8 @@
                       'date-type': dateType.options[dateType.selectedIndex].value,
                       'start-date': startDate.value,
                       'end-date': endDate.value,
+                      dtIndex : dtIndex.value,
+                      dtSingle : dtSingle.value,
                       op: 'Search'
                    }
           dialog.setAttribute("id", "dialog");

@@ -1,13 +1,10 @@
 import express from "express";
-// import * as cheerio from 'cheerio'
-// import axios from "axios";
-import puppeteer from "puppeteer";
+import puppeteerFxn from "./controllers/index.js";
 import dotenv from "dotenv";
 import path from "path";
 import cors from "cors";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import fs from "fs";
 
 
 const app = express();
@@ -35,60 +32,6 @@ app.use(cors());
 app.get("/", async (req, res)=> res.sendFile(pathToViews + "/index.html"));
 
 
-
-//create api
-// const API = axios.create({
-//     baseURL : process.env.baseURL
-// });
-
-// create stream
-
-// puppeteer function
-const puppeteerFxn = async (obj) => {
-    try{
-        const writeStream = fs.createWriteStream("appeal.csv");
-        const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
-        const page = await browser.newPage();
-        await page.goto(process.env.baseUrl);
-        await page.type("#edit-appeal-number", obj["appeal-number"]);
-        await page.type("#edit-contract-number", obj["contract-number"]);
-        // await page.$eval("#edit-date-type", obj["date-type"]);
-        await page.type("#edit-start-date", obj["start-date"]);
-        await page.type("#edit-end-date", obj["end-date"]);
-
-
-       // wait for click and navigation
-        await Promise.all([page.click("#edit-submit"),page.waitForNavigation()])
-
-        // get table headers
-        const tableHeaders = await page.$$eval("#data-table tr > th", el => el.map(e => e.textContent).join(","));
-        // write table headers
-        writeStream.write(tableHeaders + "\n");
-       
-        // get table records 
-        const selector = "#data-table tbody tr td";
-        
-        const tableRecords = await page.$$eval(selector, el => el.map(e => e.textContent))
-        let sample = ""
-        for (let i = 0; i < tableRecords.length; i++) {
-            if ( (i + 1) % 12 === 0 ) {
-               sample = sample + tableRecords[i] + "\n";
-            }else {
-                sample = sample + tableRecords[i] + ",";
-            }
-            
-        }
-
-        writeStream.write(sample.slice(0,sample.length))
-        //close browser
-        await browser.close();
-        return "done";
-    }
-
-    catch(err){
-        console.log(err)
-    }
-}
 
 
 //create post method for search query
