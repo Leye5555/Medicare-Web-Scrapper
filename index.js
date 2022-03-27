@@ -20,9 +20,17 @@ app.use(express.urlencoded({limit : "50mb", extended : true}));
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const pathToViews = path.join(__dirname, "src/views");
+const pathToJs = path.join(__dirname, "public/js");
+const pathToCss = path.join(__dirname, "public/css");
+const pathToAssets = path.join(__dirname, "public/assets");
 
 // set path to views 
 app.set("views", pathToViews);
+
+// set statics
+app.use(express.static(pathToJs)); // js statics
+app.use(express.static(pathToCss)); // css statics
+app.use(express.static(pathToAssets)); // assets statics
 
 // call cors
 app.use(cors()); 

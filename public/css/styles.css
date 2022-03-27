@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color : white;
+}
+body {
+    overflow-x: hidden;
+  }
+  .container {
+      width: 100vw;
+      min-height: 100vh;
+      height: max-content;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+      background-image: url("https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1024&q=100");
+      background-size: cover;
+  }
+  .logo-wrap {
+      width: max-content;
+      height: max-content;
+      position: relative;
+      right: 4rem;
+      overflow: hidden;
+      order: 1;
+      align-self: center;
+  }
+  .logo-wrap::after {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 255, 0.19);
+      right: 2rem;
+      top: 0;
+      bottom: 4.8rem;
+      left: 2rem;
+      border-radius: 50%;
+  }
+   
+  .logo-wrap > img {
+      display: block;
+      border-radius: 50%;
+      width: 50%;
+      position: relative;
+      margin: auto;
+      top: 15px;
+      bottom: 0;
+
+  }
+
+  .logo-wrap > h1 {
+      font-size: 3rem;
+      position: relative;
+      text-align: center;
+      margin-top: 3rem;
+      color : white;
+  }
+  
+  .background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: fixed;
+  }
+  form {
+    margin-bottom: 20px;
+    width: 50vw;
+    height: 100%;
+    padding: 4rem 3rem;
+    min-height: 85vh;
+    position: fixed;
+    z-index : 1;
+    background-color: rgba(0, 0, 255, 0.479);
+    overflow-y: auto;
+
+  }
+
+  .form-wrap {
+      width: 50vw;
+      height: 100vh;
+      z-index: 3;
+  }
+
+  form::-webkit-scrollbar {
+     width: 0px;
+  }
+ 
+
+  .form-item {
+      width: 100%;
+      height: max-content;
+      padding: 1rem 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+  }
+
+  .form-item > * {
+      display: block;
+  }
+  small {
+      font-size: 0.75rem;
+  }
+
+  input, select {
+      width: 20vw;
+      min-width: 100px;
+      height: 28px;
+      border-radius: 5px;
+      background-color: white;
+      font-size: 1.2rem;
+      color: black;
+      border: 1px solid rgb(20, 98, 214);
+      margin-top: 10px;
+  }
+  input:focus{
+      outline: unset;
+  }
+
+  input[type = "button"] {
+      background-color: rgb(47, 47, 168);
+      padding: 2rem auto;
+      height: 35px;
+      color : white;
+      margin-top: 20px;
+      cursor: pointer;
+  }
+  input::placeholder {
+      color: black;
+  }
+  #iframe {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: 5;
+    display: hidden;
+  }
+  #url-opener {
+    cursor: pointer;
+  }
+
+  .scraper-wrap {
+    position: fixed;
+    width: max-content;
+    height: max-content;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  #scraper {
+      cursor: pointer;
+  }
+
+@media screen and (max-width : 1124px) {
+    .logo-wrap {
+        width: max-content;
+        height: max-content;
+        position: relative;
+        right: 1rem;
+        overflow: hidden;
+        order: 1;
+        align-self: center;
+    }
+    .logo-wrap::after {
+        content: "";
+        position: absolute;
+        background-color: rgba(0, 0, 255, 0.19);
+        right: 0;
+        top: 0;
+        bottom: 4.8rem;
+        left: 0;
+        width: 40%;
+        margin: auto;
+        border-radius: 50%;
+    }
+     
+    .logo-wrap > img {
+        display: block;
+        border-radius: 50%;
+        width: 30%;
+        position: relative;
+        margin: auto;
+        top: 8px;
+        bottom: 0;
+  
+    }
+  
+    .logo-wrap > h1 {
+        font-size: 2.2rem;
+        position: relative;
+        text-align: center;
+        margin-top: 3rem;
+        color : white;
+    }
+}
+
+@media screen and (max-width : 858px) {
+    .container {
+        flex-flow: column;
+        background-size: 50% 100%;
+        height: max-content;
+        gap : 5rem;
+    }
+    .logo-wrap {
+        width: fit-content;
+        height: max-content;
+        position: relative;
+        overflow: hidden;
+        order: 0;
+        padding-top: 1rem;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    .logo-wrap::after {
+        content: "";
+        position: absolute;
+        background-color: rgba(0, 0, 255, 0.19);
+        right: 0;
+        top: 1rem;
+        bottom: 4.8rem;
+        left: 0;
+        width: 40%;
+        margin: auto;
+        border-radius: 50%;
+    }
+     
+    .logo-wrap > img {
+        display: block;
+        border-radius: 50%;
+        width: 30%;
+        position: relative;
+        margin: auto;
+        top: 8px;
+        bottom: 0;
+  
+    }
+  
+    .logo-wrap > h1 {
+        font-size: 2.2rem;
+        position: relative;
+        text-align: center;
+        margin-top: 3rem;
+        color : white;
+    }
+    .form-wrap {
+        height: max-content;
+        width: 100vw;
+    }
+
+    form {
+        width: 80vw;
+        position: relative;
+        height: max-content;
+        margin: auto;
+        left: 0;
+        right: 0;
+        border-radius: 10px;
+       
+    }
+
+  
+    input, select {
+        width: 30vw;
+    }
+
+  
+}
+
+@media screen and (max-width : 575px) {
+    form {
+        width: 90vw;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width : 480px) {
+   .form-item {
+     flex-flow: column;
+     align-items: flex-start;
+   }
+   input, select {
+       width: 100%;
+   }
+}
+
+@media screen and (max-width : 368px) {
+    form {
+      padding: 4rem 1.5rem;
+    }
+}
+
+@media screen and (max-width : 336px) {
+    .logo-wrap {
+        width: 280px;
+    }
+
+    .logo-wrap::after {
+        bottom: 4.4rem; 
+    }
+
+    .logo-wrap > h1 {
+        font-size: 1.8rem;
+    }
+}
+
+ 
